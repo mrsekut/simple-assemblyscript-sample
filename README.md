@@ -4,8 +4,8 @@
 
 - `$ git clone https://github.com/mrsekut/simple-assemblyscript-sample.git`
 - `$ cd simple-assemblyscript-sample`
-- `$ python -m http.server`
-- `$ open http://localhost:8000/index.html`
+- `$ npm i`
+- `$ npm run server`
 
 ## how to make this project
 
