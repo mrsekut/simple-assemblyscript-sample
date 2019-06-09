@@ -2,12 +2,10 @@
   <head>
     <title>Simple AssemblyScript Sample</title>
     <script>
-      fetch('build/optimized.wasm')
-        .then(res => res.arrayBuffer())
-        .then(bytes => WebAssembly.compile(bytes)) // `.wasm`を機械語にコンパイル
-        .then(module => WebAssembly.instantiate(module)) // moduleのインスタンス化
-        .then(instance => {
-          alert(instance.exports.add(7, 4));
+      WebAssembly.instantiateStreaming(fetch('build/untouched.wasm'))
+        .then(mod => {
+          const test = mod.instance.exports.add(7, 4);
+          alert(test);
         })
         .catch(err => {
           console.error(err.stack);
